@@ -2,6 +2,7 @@ version: '3'
 services:
   web:
     build: .
+    # Flask uses port 5000, but so does Docker registry, so we use 8080
     ports:
      - "8080:5000"
   redis:
