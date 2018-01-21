@@ -1,0 +1,36 @@
+➜ fedora23-17:44 ~/Apps/py-redis git:(master)  % docker-compose up
+Starting pyredis_redis_1 ... done
+Starting py-app-02 ... 
+Starting py-app-02 ... done
+Starting ngnx-py-redis ... done
+Attaching to pyredis_redis_1, py-app-01, py-app-02, ngnx-py-redis
+redis_1      | 1:C 21 Jan 15:44:58.654 # oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo
+py-app-01    |  * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
+redis_1      | 1:C 21 Jan 15:44:58.654 # Redis version=4.0.6, bits=64, commit=00000000, modified=0, pid=1, just started
+redis_1      | 1:C 21 Jan 15:44:58.654 # Warning: no config file specified, using the default config. In order to specify a config file use redis-server /path/to/redis.conf
+py-app-01    |  * Restarting with stat
+py-app-02    |  * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
+py-app-01    |  * Debugger is active!
+py-app-02    |  * Restarting with stat
+py-app-02    |  * Debugger is active!
+py-app-01    |  * Debugger PIN: 166-935-001
+redis_1      | 1:M 21 Jan 15:44:58.655 * Running mode=standalone, port=6379.
+redis_1      | 1:M 21 Jan 15:44:58.656 # WARNING: The TCP backlog setting of 511 cannot be enforced because /proc/sys/net/core/somaxconn is set to the lower value of 128.
+py-app-02    |  * Debugger PIN: 260-004-536
+redis_1      | 1:M 21 Jan 15:44:58.656 # Server initialized
+redis_1      | 1:M 21 Jan 15:44:58.656 # WARNING overcommit_memory is set to 0! Background save may fail under low memory condition. To fix this issue add 'vm.overcommit_memory = 1' to /etc/sysctl.conf and then reboot or run the command 'sysctl vm.overcommit_memory=1' for this to take effect.
+redis_1      | 1:M 21 Jan 15:44:58.656 # WARNING you have Transparent Huge Pages (THP) support enabled in your kernel. This will create latency and memory usage issues with Redis. To fix this issue run the command 'echo never > /sys/kernel/mm/transparent_hugepage/enabled' as root, and add it to your /etc/rc.local in order to retain the setting after a reboot. Redis must be restarted after THP is disabled.
+redis_1      | 1:M 21 Jan 15:44:58.656 * DB loaded from disk: 0.000 seconds
+redis_1      | 1:M 21 Jan 15:44:58.656 * Ready to accept connections
+ngnx-py-redis | 172.19.0.1 - - [21/Jan/2018:15:45:22 +0000] "GET / HTTP/1.1" 200 612 "-" "Mozilla/5.0 (X11; Fedora; Linux x86_64; rv:56.0) Gecko/20100101 Firefox/56.0" "-"
+ngnx-py-redis | 2018/01/21 15:45:40 [error] 7#7: *2 connect() failed (111: Connection refused) while connecting to upstream, client: 172.19.0.1, server: , request: "GET / HTTP/1.1", upstream: "http://172.19.0.3:3001/", host: "localhost:8081"
+ngnx-py-redis | 2018/01/21 15:45:40 [warn] 7#7: *2 upstream server temporarily disabled while connecting to upstream, client: 172.19.0.1, server: , request: "GET / HTTP/1.1", upstream: "http://172.19.0.3:3001/", host: "localhost:8081"
+ngnx-py-redis | 172.19.0.1 - - [21/Jan/2018:15:45:40 +0000] "GET / HTTP/1.1" 502 172 "-" "Mozilla/5.0 (X11; Fedora; Linux x86_64; rv:56.0) Gecko/20100101 Firefox/56.0" "-"
+ngnx-py-redis | 2018/01/21 15:45:40 [error] 7#7: *2 connect() failed (111: Connection refused) while connecting to upstream, client: 172.19.0.1, server: , request: "GET / HTTP/1.1", upstream: "http://172.19.0.4:3002/", host: "localhost:8081"
+ngnx-py-redis | 2018/01/21 15:45:40 [warn] 7#7: *2 upstream server temporarily disabled while connecting to upstream, client: 172.19.0.1, server: , request: "GET / HTTP/1.1", upstream: "http://172.19.0.4:3002/", host: "localhost:8081"
+^CGracefully stopping... (press Ctrl+C again to force)
+Stopping ngnx-py-redis   ... done
+Stopping py-app-01       ... done
+Stopping py-app-02       ... done
+Stopping pyredis_redis_1 ... done
+➜ fedora23-17:45 ~/Apps/py-redis git:(master)  % 
