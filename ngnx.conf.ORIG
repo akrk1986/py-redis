@@ -1,0 +1,12 @@
+upstream py_app {
+    server py-app-01:3001;
+    server py-app-02:3002;
+}
+
+server {
+    listen 8081;
+
+    location / {
+    proxy_pass http://py_app;
+  }
+}
