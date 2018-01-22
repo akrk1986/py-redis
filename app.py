@@ -1,5 +1,5 @@
 import time
-
+import socket
 import redis
 from flask import Flask
 
@@ -22,8 +22,9 @@ def get_hit_count():
 
 @app.route('/')
 def hello():
-    count = get_hit_count()
-    return 'Hello World! I have been seen {} times.\n'.format(count)
+    count = get_hit_count
+    me = socket.gethostname()
+    return 'Hello World! on {}, I have been seen {} times.\n'.format(me, count)
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", debug=True)
