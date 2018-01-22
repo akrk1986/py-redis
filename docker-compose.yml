@@ -1,7 +1,7 @@
 version: '3'
 services:
   py-app-01:
-    build: .
+    image: py-app-01
     container_name: py-app-01
     # Flask uses port 5000, but so does Docker registry, so we use another one
     ports:
@@ -10,7 +10,7 @@ services:
       - redis:redis 
 
   py-app-02:
-    build: .
+    image: py-app-02
     container_name: py-app-02
     # Flask uses port 5000, but so does Docker registry, so we use another one
     ports:
@@ -22,8 +22,8 @@ services:
     image: "redis:alpine"
 
   ngnx:
-      build: ngnx/.
-      container_name: ngnx-py-redis
+      image: pyredis-ngnx
+      container_name: pyredis-ngnx
       links:
        - py-app-01:py-app-01
        - py-app-02:py-app-02
@@ -31,4 +31,3 @@ services:
        - "80:80"
        - "443:443"
        - "8081:8081"
-    
